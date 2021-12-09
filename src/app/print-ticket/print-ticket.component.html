@@ -1,0 +1,145 @@
+<form [formGroup]="ticketForm">
+
+
+  <table id='header' style="width:100%; border: 0; border-collapse: collapse">
+    <tr style="border: 0">
+      <td>
+        <p style="font-family: 'Segoe UI', sans-serif; font-size: 1.6rem; font-weight: 700; text-align: center">
+          <u>Sarthi e-Ticketing Service</u><br>
+          <u>Electronic Reservation Slip (Personal User)</u>
+        </p>
+      </td>
+    </tr>
+  </table>
+  <table style="width: 100%; border: 0px; border-collapse: collapse">
+    <tr>
+      <td style="padding:1% 4% 1% 4%">
+        <ul style="font-family: 'Segoe UI', sans-serif; font-size: 0.7rem; font-weight:400; text-align: left;">
+          <li>This ticket will only be valid along with an ID proof in original. If found without ID Proof, Passenger
+            will be <b>treated as without ticket and charged as per extant Railway rules.</b></li>
+          <li><b>Valid IDs to be presented during train journey by one of the passenger booked on an e-ticket: Voter
+              Identity Card / Passport / PAN Card / Driving License / Photo ID issued by Central / State Govt. / Student
+              identity Card with photograph issued by recognized School or College for their students / National Bank
+              Passbook with photograph / credit Cards issued by banks with laminated photograph.</b></li>
+          <li>General rules / information for e-ticket passenger have to be studied by the customer for cancellation &
+            refund.</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  <div style="padding: 0.2% 2%">
+    <table
+      style="width:100%; border: 1px solid black; border-collapse: collapse; font-family: 'Segoe UI', sans-serif; font-size: 0.7rem;">
+      <tr style="border: 1px solid black;">
+        <td style="padding:0% 1%; border: 1px solid black;"><b>PNR Number:</b>
+            <input formControlName="pnr" matInput autocomplete="off" [readonly]="true">
+        </td>
+            <td style="padding:0% 1%; border: 1px solid black;"><b>Train Name:</b>
+                <input formControlName="trainName" matInput autocomplete="off" [readonly]="true"> </td>
+
+        <td style="padding:0% 1%; border: 1px solid black;"><b>Date Of Booking:</b>
+            <input formControlName="travelDate" matInput autocomplete="off" [readonly]="true"></td>
+      </tr>
+
+      <tr style="border: 1px solid black;">
+        <td style="padding:0% 1%; border: 1px solid black;"><b>From:</b> 
+            <input formControlName="source" matInput autocomplete="off" [readonly]="true"></td>
+        <td style="padding:0% 1%; border: 1px solid black;"><b>Date Of Journey:</b>
+            <input formControlName="travelDate" matInput autocomplete="off" [readonly]="true"> </td>
+        <td style="padding:0% 1%; border: 1px solid black;"><b>To:</b>
+            <input formControlName="destination" matInput autocomplete="off" [readonly]="true"></td>
+      </tr>
+
+      <tr style="border: 1px solid black;">
+      </tr>
+
+      <tr style="border: 1px solid black;">
+      </tr>
+    </table>
+  </div>
+
+
+  <p style="padding-left: 2%; margin-bottom: 0.5%; font-family:'Segoe UI', sans-serif; font-weight: 700;">Fare Details:
+  </p>
+  <div style="padding: 0% 2%; text-align: center">
+    <table  class="table table-striped-dark"
+      style="width:100%; border-collapse: collapse; font-family: 'Segoe UI', sans-serif; font-size: 0.8rem;">
+      <tr style="border: 1px solid black; text-align: center">
+        <td style="padding:0% 1%; border: 1px solid black;"><b>Base Fare</b>
+            <input formControlName="ticketprice" matInput autocomplete="off" [readonly]="true"></td>
+        <td style="padding:0% 1%; border: 1px solid black;"><b>Total Fare</b>
+            <input formControlName="ticketprice" matInput autocomplete="off" [readonly]="true"></td>
+      </tr>
+
+      <tr style="border: 1px solid black; text-align: center">
+        <td style="padding:0% 1%; border: 1px solid black;">&#x20b9; </td>
+        <td style="padding:0% 1%; border: 1px solid black;">&#x20b9; </td>
+      </tr>
+    </table>
+  </div>
+
+
+  <p style="padding-left: 2%; margin-bottom: 0.5%; font-family:'Segoe UI', sans-serif; font-weight: 700;">Passenger
+    Details:</p>
+  <div style="padding: 0% 2%; text-align: center">
+    <table class="table table-striped-dark"
+      style="width:100%; border: 1px solid black; border-collapse: collapse; font-family: 'Segoe UI', sans-serif; font-size: 0.8rem;">
+      <tr style="border: 1px solid black; text-align: center">
+        <td style="padding:0% 1%; border: 1px solid black;"><b>Sl No </b></td>
+            <!-- <input formControlName="ticketprice" matInput autocomplete="off"></td> -->
+        <td style="padding:0% 1%; border: 1px solid black;"><b>Name </b>
+            <!-- <input formControlName="name" matInput autocomplete="off"></td> -->
+        </td>
+        <td style="padding:0% 1%; border: 1px solid black;"><b>Age </b>
+            <!-- <input formControlName="age" matInput autocomplete="off"></td> -->
+        
+        </td>
+        <td style="padding:0% 1%; border: 1px solid black;"><b>Sex </b>
+        
+        </td>
+      </tr>
+
+      <tr style="border: 1px solid black; text-align: center">
+        <td style="padding:0% 1%; border: 1px solid black;">1 </td>
+        <td style="padding:0% 1%; border: 1px solid black;">
+            <input formControlName="name" matInput autocomplete="off" [readonly]="true"></td>
+        <td style="padding:0% 1%; border: 1px solid black;"> 
+            <input formControlName="age" matInput autocomplete="off" [readonly]="true"></td>
+        
+        <td style="padding:0% 1%; border: 1px solid black;"> 
+            <input formControlName="gender" matInput autocomplete="off" [readonly]="true"></td>
+      </tr>
+    </table>
+  </div>
+  <br>
+
+  <br>
+  <div style="text-align:center; padding: 1% 4% 1% 4%">
+  </div>
+
+  <p style="padding-left: 2%; margin-bottom: 0.5%; font-family: 'Segoe UI', sans-serif; font-weight: 700;">IMPORTANT:
+  </p>
+  <table style="width:100%; border: 0; border-collapse: collapse">
+    <tr>
+      <td style="padding:1% 4% 1% 4%">
+        <ul style="font-family: 'Segoe UI', sans-serif; font-size: 0.7rem; font-weight:400; text-align: left;">
+          <li><b> For details, rules and terms & conditions of E-Ticketing Services, please visit <a
+                href="/">www.sarthi.co.in</a></b></li>
+          <li><b>Departure time printed on this ERS/VRM is liable to changes. Please check the correct departure time
+              Railway Station Enquiry, or Dial 139 or SMS 'RAIL' to 139.</b></li>
+          <li><b>General rules / information foe e-ticket passenger have to be studied by the customer for cancellation
+              & refund.</b></li>
+          <li><b>Contact Us on: 24X7 hrs Customer Support at 011-39340000, or Mail To: <a
+                href="/">care@sarthi.co.in</a></b></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+</form>
+
+<table style="width:100%; border: 0; border-collapse: collapse">
+  <tr>
+  </tr>
+</table>
+
+<div class="btn btn-primary">Download</div>

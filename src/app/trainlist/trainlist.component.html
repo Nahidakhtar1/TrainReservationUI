@@ -1,0 +1,87 @@
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+<div class="tm-row">
+  <main class="tm-col-left">
+
+
+    <form [formGroup]="trainForm" (ngSubmit)="onFormSubmit()">
+      
+   
+
+       
+           
+      <div>
+
+        <table class="table table-bordered"mat-table [dataSource]="dataSource" matSort class="" style="box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);margin-left: 46rem;width:100%">
+
+          <!-- Checkbox Column -->
+          <ng-container matColumnDef="select">
+            <th style="width: 100px;" mat-header-cell *matHeaderCellDef>
+            <!-- <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Id </th>
+              <td mat-cell *matCellDef="let train"> {{train.id}} </td>
+            </ng-container> -->
+
+          </ng-container>
+          <ng-container matColumnDef="trainNo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Train Number </th>
+            <td mat-cell *matCellDef="let train"> {{train.trainNo}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="trainName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Train Name </th>
+            <td mat-cell *matCellDef="let train"> {{train.trainName}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="source">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Source </th>
+            <td mat-cell *matCellDef="let train"> {{train.source}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="destination">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Destination </th>
+            <td mat-cell *matCellDef="let train"> {{train.destination}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="ticketprice">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+            <td mat-cell *matCellDef="let train"> {{train.ticketprice}} </td>
+          </ng-container>
+
+          <!-- <ng-container matColumnDef="Edit">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit </th>
+
+            <td mat-cell *matCellDef="let train">
+
+              <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" type="button"
+                mat-raised-button color="accent" matTooltip="Edit" (click)="loadTrainToEdit(train.id)">
+                <mat-icon>edit</mat-icon>
+              </button>
+
+            </td>
+          </ng-container> -->
+
+          <ng-container matColumnDef="Delete" style="background-color: black !important;">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header > Delete </th>
+            <td mat-cell *matCellDef="let train"> <button mat-icon-button
+                aria-label="Example icon button with a delete icon" type="button" mat-raised-button color="accent"
+                matTooltip="Delete" (click)="deletePassenger(train.id)" >
+                <mat-icon>delete_forever</mat-icon>
+              </button></td>
+          </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+
+    </form>
+  </main>
+</div>

@@ -1,0 +1,68 @@
+<!-- <ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+<div class="tm-row">
+  <div class="tm-col-left"></div>
+  <main class="tm-col-right tm-contact-main" style="background-color: #13131561; margin-top: 3rem">
+      <section class="tm-content tm-contact">
+        <h1 class="mb-4 tm-content-title" style="font-size: 4rem;" *ngIf="!isLoggedIn">Welcome</h1>
+          <h2 class="mb-4 tm-content-title" style="font-size: 4rem;">LOGIN</h2>
+          <form id="contact-form" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <mat-form-field>
+              <label for="">User Name</label>
+              <input  matTooltip="Enter passenger id" matInput  autocomplete="off"  name="username" [(ngModel)]="form.username" #username="ngModel">
+            </mat-form-field> 
+            <br>
+            <mat-form-field>
+              <label for="">Password</label>
+              <input type="password"  matTooltip="Enter passenger id" matInput  autocomplete="off"  name="password" [(ngModel)]="form.password" minlength="6"
+              #password="ngModel">
+            </mat-form-field>  
+              <div class="text-right">
+                  <button type="submit" class="btn btn-big btn-primary">Login</button>
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
+                Login failed: {{ errorMessage }}
+              </div>
+          </form>
+         
+      </section>
+     
+  </main>
+</div>
+ -->
+
+
+ <div class="flex-container">
+	
+	<div class="flex-item">
+		<h1 class="display-3"> Sign In </h1>
+		<br>
+
+    <form id="contact-form" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <mat-form-field>
+        <label for="">User Name</label>
+        <input  matTooltip="Enter Username" matInput  autocomplete="off"  name="username" [(ngModel)]="form.username" #username="ngModel">
+      </mat-form-field> 
+      <br>
+      <mat-form-field>
+        <label for="">Password</label>
+        <input type="password"  matTooltip="Enter password" matInput  autocomplete="off"  name="password" [(ngModel)]="form.password" minlength="6"
+        #password="ngModel">
+      </mat-form-field>  
+       
+            <button type="submit" class="btn btn-big btn-primary">Login</button>
+               <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
+          Login failed: {{ errorMessage }}
+        </div>
+    </form>
+		
+		<p><a routerLink="/forgotpassword" routerLinkActive="active">Forgot Password?</a></p>
+
+	</div>
+</div>

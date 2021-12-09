@@ -1,0 +1,116 @@
+<div class="flex-parent">
+	
+	  
+    <form [formGroup]="UserForm" (ngSubmit)="onSubmit()">
+		
+		<div class="flex-container">
+			
+			<div class="flex-item">
+
+				
+			    <h2>User Account Details</h2>
+			    <br>
+
+				<mat-form-field>
+					<label for="InputEmail">User Name</label>
+				    <input type="text"  formControlName="username" class="form-control csp" matInput placeholder="User Name">
+				</mat-form-field>
+
+				
+
+				<mat-form-field>
+					<label for="InputEmail">Email address</label>
+				    <input type="email" id="email" name="email"  formControlName="email"  class="form-control csp" aria-describedby="emailHelp" matInput placeholder="Email address">
+				    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+				</mat-form-field>
+
+			    <mat-form-field>
+				    <label for="password">Password</label>
+				    <input type="password" id="password" name="password"  formControlName="password"  class="form-control csp" matInput placeholder="Password" >
+				</mat-form-field>	    
+			    <br>
+			    <br>
+
+			    <h2>Financial Details</h2>
+			    <br>
+
+			    <mat-form-field>
+				    <label for="aadhaar">aadhaar Number</label>
+				    <input type="text" id="aadhaar" name="aadhaar"  formControlName="aadhaar" class="form-control csp" aria-describedby="aadhaarHelp" matInput placeholder="aadhaar Number">
+				    <small id="aadhaarHelp" class="form-text text-muted">Please enter your aadhaar Number.</small>
+				</mat-form-field>
+				<mat-form-field>
+				    <label for="PAN">PAN </label>
+				    <input type="text" id="PAN" name="PAN"  formControlName="pan" class="form-control csp" aria-describedby="PANHelp" matInput placeholder="PAN">
+					<small id="PANHelp" class="form-text text-muted">Please enter your PAN number.</small>
+				</mat-form-field>
+			</div>
+			
+			<div class="flex-item">
+				<h2>Personal Details</h2>
+				<br>
+
+				<mat-form-field>
+					<label for="firstName">First Name</label>
+				    <input type="text" id="firstname" name="firstname"  formControlName="firstName" class="form-control csp" matInput placeholder="First Name">
+				</mat-form-field>
+				<mat-form-field>
+				    <label for="lastName">Last Name</label>
+				    <input type="text" id="lastname" name="lastname"  formControlName="lastName" class="form-control csp" matInput placeholder="Last Name">
+				</mat-form-field>
+				<mat-form-field>
+				    <label for="dob">Date Of Birth</label>
+				    <input type="date" id="dob" name="dob"  formControlName="dob" class="form-control csp" matInput >
+			</mat-form-field>
+				<mat-form-field>
+				    <label for="phone">Phone Number</label>
+				    <input type="text" id="phone" name="phone"  formControlName="phonenumber"  class="form-control csp" matInput placeholder="Phone Number">
+				</mat-form-field>
+				<mat-form-field>
+				    <label for="address">Address Line 1</label>
+				    <input type="text" id="address" name="address"  formControlName="addressLine"  class="form-control csp" matInput placeholder="Address Line 1">
+				</mat-form-field>
+				<mat-form-field>    
+				    <label for="city">City</label>
+				    <input type="text" id="city" name="city"  formControlName="city" class="form-control csp" matInput placeholder="City">
+				</mat-form-field>
+				<mat-form-field>
+				    <label for="state">State</label>
+				    <input type="text" id="state" name="state"  formControlName="state" class="form-control csp" matInput placeholder="State">
+				</mat-form-field>
+				<mat-form-field>
+				    <label for="country">Country</label>
+				    <input type="text" id="country" name="country"  formControlName="country"  class="form-control csp" matInput placeholder="Country">
+				</mat-form-field>
+				<mat-form-field>
+					<label for="pin">PIN/ZIP Code</label>
+				    <input type="text" id="pin" name="pin"  formControlName="pin" class="form-control csp" matInput placeholder="PIN/ZIP Code">
+				</mat-form-field> 
+			</div>
+			
+			
+
+		</div>
+		<br>
+		<div class="form-check was-validated">
+    		<label class="form-check-label custom-control custom-checkbox">
+      		<span class="custom-control-indicator"></span>
+    		<span class="custom-control-description">I have read the all the <a class="terms" href="#">terms and conditions</a> carefully, as stated by your company and will abide by them.</span>     		
+    		</label>
+  		</div>
+		<br>
+		
+      	<br>
+      	<p style="padding-left: 40%">
+      		
+      	</p>
+      	<br>
+		  <button type="submit" mat-raised-button color="accent" matTooltip="Submit"
+		   >Submit</button>
+
+
+	</form>
+</div>
+<div class="alert alert-success" *ngIf="isSuccessful">
+  Your registration is successful!
+</div>

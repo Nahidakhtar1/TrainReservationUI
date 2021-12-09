@@ -1,0 +1,35 @@
+input.mat-input-element {
+    margin-top: 1.4em;
+  ;
+  }
+  input{
+    font-size: 16px !important;
+  }
+  td,th{
+    color: rgb(12, 12, 12);
+  }
+  
+  mat-row, mat-header-row, mat-footer-row, th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    border-bottom-color: rgb(248 242 242 / 74%);
+  }
+  
+  label{
+    color: black;
+    margin: 0% !important;
+  }
+  form{
+    padding: 5%;
+  }
+
+  input{
+    border: none;
+      background: none;
+    color: black;
+    font-weight: bold;
+    text-align: left;
+    width:-webkit-fill-available !important;
+  }
+  input:focus-visible{
+    outline: none !important ;
+  }
+  

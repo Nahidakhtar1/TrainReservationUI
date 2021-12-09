@@ -1,0 +1,146 @@
+<div id="overlay" class="overlay">
+  <div id="loading-img"></div>
+</div>
+
+<div id="errorAlert" class="alert alert-danger div-hidden" role="alert"></div>
+  <div class="flex-parent">
+    <!-- Sign Up Form Starts Here -->	
+
+    <form [formGroup]="ticketForm" (ngSubmit)="onFormSubmit()" id="targetRed">
+
+      <h2 class="main-header"><i class="material-icons" style="font-weight: 700; font-size: 2.8rem;">person_add</i> Passenger Preference</h2>
+
+      <!-- <h1 style="margin-top: 5rem;font-size: 3em;color: black; margin-left:2rem">Enter Booking Details</h1> -->
+      
+      <mat-form-field style="display: none;">
+        <input formControlName="pnr" matTooltip="Enter Train name" matInput placeholder="pnr"
+          autocomplete="off">
+      </mat-form-field>
+      <table>
+        <tr>
+          <mat-form-field style="display: none;">
+            <input formControlName="username" matTooltip="" matInput placeholder="username"
+              autocomplete="off">
+          </mat-form-field>
+          <td>
+            <mat-form-field style="margin-left:12em;">
+              <input formControlName="trainName" matTooltip="Enter Train name" matInput placeholder="TrainName"
+                autocomplete="off">
+            </mat-form-field>
+           
+          </td>
+          <td>
+            <mat-form-field  style="margin-left:2em;">
+              <input formControlName="source" matTooltip="Enter Source name" matInput placeholder="Source"
+                autocomplete="off">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field style="display: none;">
+              <input formControlName="ticketprice" matTooltip="Enter price" matInput placeholder="Price" name="ticketprice"
+                autocomplete="off" >
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field   style="margin-left:2em;">
+              <input formControlName="destination" matTooltip="Enter Destination name" matInput
+                placeholder="Destination" autocomplete="off">
+            </mat-form-field>
+           
+          </td>
+        </tr>
+      </table>
+      <table >
+        <tr>
+          <td>
+            <mat-form-field style="margin-left:8em;">
+              <input formControlName="name" matTooltip="Enter passenger name" matInput placeholder="name"
+                autocomplete="off">
+            </mat-form-field>
+          
+          </td>
+          <td>
+            <mat-form-field class="demo-full-width" style="margin-left:2em;">
+              <input formControlName="age" matTooltip="Enter passenger age" matInput placeholder="age"
+                autocomplete="off">
+            </mat-form-field>
+          
+          </td>
+          <td>
+            <mat-form-field class="demo-full-width" style="margin-left:2em;">
+              <input formControlName="gender" matTooltip="Enter gender" matInput placeholder="Gender"
+                autocomplete="off">
+            </mat-form-field>
+          
+          </td>
+          <td>
+            <mat-form-field class="demo-full-width" style="margin-left:2em;">
+              <input formControlName="travelDate" matTooltip="Enter Travel Date" matInput placeholder="Travel Date"
+                autocomplete="off">
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    
+
+      <button type="submit" mat-raised-button color="accent" matTooltip="Submit" [disabled]="!ticketForm.valid"
+        style="font-size: 2em;    margin-right: 8%">Submit</button>
+
+       <button type="reset" mat-raised-button color="accent" matTooltip="Reset"
+        style="    font-size: 2em;     margin-right: 2%;" (click)="resetForm()">Reset</button>
+
+      <p style="color:rgb(0, 128, 0);font-size:20px;font-weight:bold" Class="success" align="left">
+        {{massage}}
+      </p>
+
+      <table class="table table-bordered"mat-table [dataSource]="dataSource" matSort class="" style="box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);width:90%;background-color: #0000002e;margin:5%">     
+        <ng-container matColumnDef="trainNo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Train Number </th>
+          <td mat-cell *matCellDef="let train"> {{train.trainNo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="trainName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Train Name </th>
+          <td mat-cell *matCellDef="let train"> {{train.trainName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="source">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Source </th>
+          <td mat-cell *matCellDef="let train"> {{train.source}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="destination">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Destination </th>
+          <td mat-cell *matCellDef="let train"> {{train.destination}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="ticketprice">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+          <td mat-cell *matCellDef="let train"> {{train.ticketprice}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Select">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header > Select Train </th>
+
+          <td mat-cell *matCellDef="let train">
+
+            <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" type="button"
+              mat-raised-button color="accent" matTooltip="Select" (click)="loadTrainToSelect(train.id)" >
+              <mat-icon>Select</mat-icon>
+            </button>
+
+          </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <button type="button" class="btn btn-primary" data-toggle="modal"  routerLink="/viewTicket">
+        Download Ticket
+      </button>
+    </form>
+</div>
+
+
+
+

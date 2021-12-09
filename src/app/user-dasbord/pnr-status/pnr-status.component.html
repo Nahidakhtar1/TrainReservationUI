@@ -1,0 +1,95 @@
+<div class="team-view">
+  <div class="header">
+    <h1 class="display-3"><i class="material-icons" style="font-size: 3.6rem; font-weight: 700;">directions_railway</i>
+      Ticket Record</h1> </div>
+  <div class="flex-parent">
+   <br>
+    <table class="table table-bordered" mat-table [dataSource]="dataSource1" matSort class=""
+      style="box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);width:92%;background-color: #0000002e;">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="display: none;"> ID </th>
+        <td mat-cell *matCellDef="let ticket" style="display: none;"> {{ticket.id}} </td>
+      </ng-container>
+      <ng-container matColumnDef="pnr">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> PNR </th>
+        <td mat-cell *matCellDef="let ticket"> {{ticket.pnr}} </td>
+      </ng-container>
+      <ng-container matColumnDef="trainName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Train Name </th>
+        <td mat-cell *matCellDef="let ticket"> {{ticket.trainName}} </td>
+      </ng-container>
+
+     
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Passenger Name </th>
+        <td mat-cell *matCellDef="let ticket"> {{ticket.name}} </td>
+      </ng-container>
+
+     
+
+      <ng-container matColumnDef="travelDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Travel Date </th>
+        <td mat-cell *matCellDef="let ticket"> {{ticket.travelDate}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ticketprice">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Travel Price </th>
+        <td mat-cell *matCellDef="let ticket"> {{ticket.ticketprice}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Print">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Print </th>
+
+        <td mat-cell *matCellDef="let passenger">
+
+          <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" type="button"
+            mat-raised-button color="accent" matTooltip="Print" (click)="loadPassengerToPrint(passenger.id)">
+            <mat-icon>print</mat-icon>
+          </button>
+
+
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <form [formGroup]="ticketForm" id="targetRed">
+      <div id="cardss" class="card-orient">
+        <ul class="team">
+          <li>
+            <div class="card" style="width:50rem;margin-left: -9em">
+              <div class="card-body">
+
+                <h4 class="card-title"><strong>PNR Number: </strong>
+                    <input formControlName="pnr" matInput autocomplete="off">
+				</h4>
+                <p class="card-text">You will find all your booking details, PNR Number and date of journey!</p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Train No. & Train Name: </strong>
+                    <input formControlName="trainName" matInput autocomplete="off">
+                </li>
+                <li class="list-group-item"><strong>Date Of Boarding: </strong>
+                    <input formControlName="travelDate" matInput autocomplete="off">
+				</li>
+                <li class="list-group-item"><strong>Total Fare: ₹</strong>
+                    <input formControlName="ticketprice" matInput autocomplete="off">
+				</li>
+                <li class="list-group-item"><strong>Passenger Name: </strong>
+                    <input formControlName="name" matInput autocomplete="off">
+				</li>
+                <li class="list-group-item">
+                  <button type="button" id="membr" class="btn btn-primary btn-lg "(click)="view_print()">View
+                    Details</button>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </form>
+  </div>
+</div>

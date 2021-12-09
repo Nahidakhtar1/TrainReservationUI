@@ -1,0 +1,20 @@
+input.mat-input-element {
+    margin-top: 0.4em;
+;
+}
+input{
+    font-size: 24px !important;
+}
+td,th{
+    color: white;
+}
+table{
+    background-color: #0000002e;
+}
+mat-row, mat-header-row, mat-footer-row, th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    border-bottom-color: rgb(248 242 242 / 74%);
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black !important;
+    
+  }

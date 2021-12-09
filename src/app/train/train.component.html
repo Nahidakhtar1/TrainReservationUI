@@ -1,0 +1,146 @@
+
+
+<div class="flex-container">
+  <div class="flex-item">
+    <form [formGroup]="trainForm" (ngSubmit)="onFormSubmit()" style="margin-left: 5%;">
+      
+      <h1 style="margin-top: 5rem;font-size: 3em;color: black">Update Train Details</h1>
+      <table style="width: -webkit-fill-available;">
+        <tr>
+          <td>
+            <mat-form-field>
+              <input formControlName="trainNo" matTooltip="Enter train Number" matInput placeholder="Train No"
+                autocomplete="off">
+            </mat-form-field>
+            <mat-error>
+              <span *ngIf="!trainForm.get('trainNo').value && trainForm.get('trainNo').touched"></span>
+            </mat-error>
+          </td>
+          <td>
+            <mat-form-field class="demo-full-width">
+              <input formControlName="trainName" matTooltip="Enter train Name" matInput placeholder="Train Name"
+                autocomplete="off">
+            </mat-form-field>
+            <mat-error>
+              <span *ngIf="!trainForm.get('trainName').value && trainForm.get('trainName').touched"></span>
+            </mat-error>
+          </td>
+
+          <td>
+            <mat-form-field class="demo-full-width">
+              <input formControlName="source" matTooltip="Enter source" matInput placeholder="Source"
+                autocomplete="off">
+            </mat-form-field>
+            <mat-error>
+              <span *ngIf="!trainForm.get('source').value && trainForm.get('source').touched"></span>
+            </mat-error>
+        
+          </td>
+          <td>
+            <mat-form-field class="demo-full-width">
+              <input formControlName="destination" matTooltip="Enter destination" matInput placeholder="Destination"
+                autocomplete="off">
+            </mat-form-field>
+            <mat-error>
+              <span *ngIf="!trainForm.get('destination').value && trainForm.get('destination').touched"></span>
+            </mat-error>
+          </td>
+          <td>
+            <mat-form-field class="demo-full-width">
+              <input formControlName="ticketprice" matTooltip="Enter price" matInput placeholder="Price"
+                autocomplete="off">
+            </mat-form-field>
+            <mat-error>
+              <span *ngIf="!trainForm.get('ticketprice').value && trainForm.get('ticketprice').touched"></span>
+            </mat-error>
+          </td>
+        </tr>
+      </table>
+      <button type="submit" mat-raised-button color="accent" matTooltip="Submit"
+      [disabled]="!trainForm.valid" style="font-size: 1em;    margin-right: 2%;">Submit</button>
+    <button type="reset" mat-raised-button color="accent" matTooltip="Reset"
+      (click)="resetForm()" style="    font-size: 1em;     margin-right: 2%;">Reset</button>
+ 
+    <p *ngIf="dataSaved" style="color:rgb(0, 128, 0);font-size:20px;font-weight:bold" Class="success"
+      align="left">
+      {{massage}}
+    </p>
+      
+            
+         
+           
+            
+          
+        
+
+       
+           
+      <div style="margin-top: 2%;">
+
+        <table class="table table-bordered"mat-table [dataSource]="dataSource" matSort class="" style=" background-color: #0000002e;box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);width: -webkit-fill-available;margin-right:5%">
+
+          <!-- Checkbox Column -->
+          <ng-container matColumnDef="select">
+            <th style="width: 100px;" mat-header-cell *matHeaderCellDef>
+            <!-- <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Id </th>
+              <td mat-cell *matCellDef="let train"> {{train.id}} </td>
+            </ng-container> -->
+
+          </ng-container>
+          <ng-container matColumnDef="trainNo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Train Number </th>
+            <td mat-cell *matCellDef="let train"> {{train.trainNo}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="trainName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Train Name </th>
+            <td mat-cell *matCellDef="let train"> {{train.trainName}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="source">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Source </th>
+            <td mat-cell *matCellDef="let train"> {{train.source}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="destination">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Destination </th>
+            <td mat-cell *matCellDef="let train"> {{train.destination}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="ticketprice">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+            <td mat-cell *matCellDef="let train"> {{train.ticketprice}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Edit">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit </th>
+
+            <td mat-cell *matCellDef="let train">
+
+              <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" type="button"
+                mat-raised-button color="accent" matTooltip="Edit" (click)="loadTrainToEdit(train.id)">
+                <mat-icon>edit</mat-icon>
+              </button>
+
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Delete" style="background-color: black !important;">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header > Delete </th>
+            <td mat-cell *matCellDef="let train"> <button mat-icon-button
+                aria-label="Example icon button with a delete icon" type="button" mat-raised-button color="accent"
+                matTooltip="Delete" (click)="deletePassenger(train.id)" >
+                <mat-icon>delete_forever</mat-icon>
+              </button></td>
+          </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+
+    </form>
+ </div>
+</div>

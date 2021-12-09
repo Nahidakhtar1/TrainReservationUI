@@ -1,0 +1,86 @@
+<!--  
+ <div class="tm-row pt-4" style="background: #00000047;">
+                <div class="tm-col-left">
+                    <div class="tm-site-header media">
+                        <i class="fas fa-umbrella-beach fa-3x mt-1 tm-logo"></i>
+                        <div class="media-body">
+                            <h1 class="tm-sitename text-uppercase"  style="cursor: pointer;">
+                             <span style="font-weight: bold">Sarthi</span>  (Train Reservation)</h1>
+                            <p class="tm-slogon">Making Ticket Booking Easy</p>
+                        </div>        
+                    </div>
+                </div>
+                <div class="tm-col-right">
+                    <nav class="navbar navbar-expand-lg" id="tm-main-nav">
+                        <button class="navbar-toggler toggler-example mr-0 ml-auto" type="button" 
+                            data-toggle="collapse" data-target="#navbar-nav" 
+                            aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span><i class="fas fa-bars"></i></span>
+                        </button>
+                        <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+                            <ul class="navbar-nav text-uppercase">
+                                <li class="nav-item">
+                                    <a class="nav-link tm-nav-link" href="/home"  routerLink="home" style="font-family: -webkit-pictograph;font-weight: 600;padding-top: 1em;font-size: x-large;">Home </a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a href="/trainlist" class="nav-link tm-nav-link" routerLink="trainlist"  *ngIf="!isLoggedIn"style="font-family: -webkit-pictograph;font-weight: 600;padding-top: 1em;font-size: x-large;">Train List</a>
+                                  </li>
+                                                       
+                                <li class="nav-item">
+                                    <a class="nav-link tm-nav-link" [routerLink]="['view-train']" *ngIf="showAdminBoard" style="font-family: -webkit-pictograph;font-weight: 600;padding-top: 1em;font-size: x-large;">Train-list</a>
+                                </li>
+                                 <li class="nav-item">
+                                    <a class="nav-link tm-nav-link" [routerLink]="['book-ticket']"  *ngIf="isLoggedIn" style="font-family: -webkit-pictograph;font-weight: 600;padding-top: 1em;font-size: x-large;" >Book Tickets</a>
+                                </li>
+                              
+                                <li class="nav-item">
+                                    <a class="nav-link tm-nav-link"[routerLink]="['add-passenger']" *ngIf="showAdminBoard" style="font-family: -webkit-pictograph;font-weight: 600;padding-top: 1em;font-size: x-large;">Passenger</a>
+                                </li>
+                                <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+                                  
+                                    <li class="nav-item">
+                                      <a href="/register" class="nav-link tm-nav-link" routerLink="register" style="font-family: -webkit-pictograph;font-weight: 600;padding-top: 1em;font-size: x-large;">Sign Up</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a href="/login" class="nav-link tm-nav-link" routerLink="login" style="font-family: -webkit-pictograph;font-weight: 600;padding-top: 1em;font-size: x-large;">Login</a>
+                                    </li>
+                                  </ul>
+                                  <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+                                  </ul>
+                                  <li class="nav-item dropdown" *ngIf="isLoggedIn" >
+                                    <a class="btn btn-outline-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: -webkit-pictograph;font-weight: 600;margin-top: 14%; width: 100%;font-weight: bold;
+                                    color:white;border-color: #ffffff">
+                                        {{ username }}
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background: black;">
+                                      <a class="nav-link tm-nav-link " href="/profile"  routerLink="profile" style="font-size: x-large;color:white" >Details</a>
+                                      <a href class="nav-link tm-nav-link" (click)="logout()" style="font-size: x-large;color:white">LogOut</a>
+                
+                                    </div>
+                                  </li>
+                            </ul>                            
+                        </div>                        
+                    </nav>
+                </div>
+            </div>-->
+<router-outlet></router-outlet> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

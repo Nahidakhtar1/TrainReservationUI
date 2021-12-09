@@ -1,0 +1,90 @@
+<div id="errorAlert" class="alert alert-danger div-hidden" role="alert"></div>
+
+<div class="flex-parent">
+	<form [formGroup]="form" (ngSubmit)="submit()">
+
+    <!-- Sign Up Form Starts Here -->
+
+    <h2 class="main-header"><i class="material-icons" style="font-weight: 700; font-size: 2.8rem;">pin_drop</i> Journey
+      Details</h2>
+    <br>
+
+    <div class="flex-container">
+      <div class="flex-item">
+
+        <!-- Flex Item -->
+          
+		<div class="form-group">
+			<label for="website">From Station:</label>
+			<select formControlName="source" class="form-control" (change)="changeWebsite($event)">
+				<option disabled>Select Source Station</option>
+				<option>Choose Source</option>
+				<option *ngFor="let web of datalist">{{web.source}}</option>
+			</select>
+		</div>
+        <!-- Flex Item -->
+      </div>
+
+
+      <div class="flex-item">
+        <!-- Flex Item -->
+		<div class="form-group">
+			<label for="website">To Station:</label>
+			<select formControlName="destination" class="form-control" (change)="changeWebsite($event)">
+				<option disabled>Select Source Station</option>
+				<option>Choose Destination</option>
+				<option *ngFor="let web of datalist">{{web.destination}}</option>
+			</select>
+		</div>
+        <!-- Flex Item -->
+      </div>
+      <br>
+    </div>
+    <button type="button" id="searchTrains" class="btn btn-primary" routerLink="/user/booking/seating/details"><i
+        class="material-icons" style="font-size: 1.2rem; line-height: 1em">search</i>
+      <font style="font-size: 1.4rem; font-weight: 300;"> Search</font>
+    </button>
+  </form>
+
+  <table class="table table-bordered" mat-table [dataSource]="dataSource" matSort class=""
+  style="box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);width:92%;background-color: #0000002e;">
+
+  <ng-container matColumnDef="id">
+	<th mat-header-cell *matHeaderCellDef mat-sort-header style="display: none;"> ID </th>
+	<td mat-cell *matCellDef="let train" style="display: none;"> {{train.id}} </td>
+  </ng-container>
+  <ng-container matColumnDef="trainName">
+	<th mat-header-cell *matHeaderCellDef mat-sort-header> Train Number </th>
+	<td mat-cell *matCellDef="let train"> {{train.trainNo}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="trainName">
+	<th mat-header-cell *matHeaderCellDef mat-sort-header> Train Name </th>
+	<td mat-cell *matCellDef="let train"> {{train.trainName}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="trainprice">
+	<th mat-header-cell *matHeaderCellDef mat-sort-header> Travel Price </th>
+	<td mat-cell *matCellDef="let train"> {{train.trainprice}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Print">
+	<th mat-header-cell *matHeaderCellDef mat-sort-header> Select </th>
+
+	<td mat-cell *matCellDef="let passenger">
+
+	  <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" type="button"
+		mat-raised-button color="accent" matTooltip="Select" >
+		<mat-icon>Select</mat-icon>
+	  </button>
+
+
+	</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>
+
