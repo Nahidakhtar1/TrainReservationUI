@@ -2,7 +2,6 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminNotificationComponent } from './admin-dashboard/admin-notification/admin-notification.component';
 import { BookingVerficationComponent } from './admin-dashboard/booking-verfication/booking-verfication.component';
-import { PassengerListComponent } from './admin-dashboard/passenger-list/passenger-list.component';
 import { ProfuleAdminComponent } from './admin-dashboard/profule-admin/profule-admin.component';
 import { TrainScheduleComponent } from './admin-dashboard/train-schedule/train-schedule.component';
 import { AdminComponent } from './admin/admin.component';
@@ -38,7 +37,7 @@ const routes: Routes = [
     { path: '', component: HomeViewComponent },
     { path: 'profile', component: ProfuleAdminComponent },
     { path: 'bookingVerification', component: BookingVerficationComponent },
-    { path: 'passengerList', component: PassengerListComponent },
+    { path: 'passengerList', component: PassengerComponent },
     { path: 'train', component: TrainComponent },
     { path: 'addTrain', component: TrainScheduleComponent },
     { path: 'notifications', component: AdminNotificationComponent },

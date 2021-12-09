@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PassengerListComponent } from './passenger-list.component';
+import { NotificationUComponent } from './notification-u.component';
 
-describe('PassengerListComponent', () => {
-  let component: PassengerListComponent;
-  let fixture: ComponentFixture<PassengerListComponent>;
+describe('NotificationUComponent', () => {
+  let component: NotificationUComponent;
+  let fixture: ComponentFixture<NotificationUComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PassengerListComponent ]
+      declarations: [ NotificationUComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PassengerListComponent);
+    fixture = TestBed.createComponent(NotificationUComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

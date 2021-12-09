@@ -53,10 +53,10 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminNavComponent } from './admin-nav/admin-nav.component';
 import { AdminNotificationComponent } from './admin-dashboard/admin-notification/admin-notification.component';
 import { BookingVerficationComponent } from './admin-dashboard/booking-verfication/booking-verfication.component';
-import { PassengerListComponent } from './admin-dashboard/passenger-list/passenger-list.component';
 import { ProfuleAdminComponent } from './admin-dashboard/profule-admin/profule-admin.component';
 import { TrainScheduleComponent } from './admin-dashboard/train-schedule/train-schedule.component';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+import { NotificationUComponent } from './user-dasbord/notification-u/notification-u.component';
 
 
 @NgModule({
@@ -83,9 +83,9 @@ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
     AdminNavComponent,
     AdminNotificationComponent,
     BookingVerficationComponent,
-    PassengerListComponent,
     ProfuleAdminComponent,
-    TrainScheduleComponent
+    TrainScheduleComponent,
+    NotificationUComponent
   ],
   imports: [
     BrowserModule,  

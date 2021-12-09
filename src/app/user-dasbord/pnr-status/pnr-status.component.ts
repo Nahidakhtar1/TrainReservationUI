@@ -51,6 +51,7 @@ export class PnrStatusComponent implements OnInit {
       gender: [''],
       travelDate: [''],
       ticketprice:[''],
+      trainNo:['']
     })
     this.username = localStorage.getItem('username');
     this.loadAllTicket();
@@ -87,6 +88,7 @@ export class PnrStatusComponent implements OnInit {
         
         this.massage = null;
         this.dataSaved = false;
+        this.ticketForm.controls['trainNo'].setValue(Ticket.trainNo);
         this.ticketForm.controls['pnr'].setValue(Ticket.pnr);
         this.ticketForm.controls['trainName'].setValue(Ticket.trainName);
         this.ticketForm.controls['source'].setValue(Ticket.source);

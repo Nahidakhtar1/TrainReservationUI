@@ -11,6 +11,8 @@ import { TrainService } from '../train.service';
 import { Ticket } from '../ticket';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ViewportScroller } from '@angular/common';
+import { Router } from '@angular/router';
+
 // import { TicketService } from '../ticket.service';
 
 
@@ -36,63 +38,73 @@ displayedColumns: string[] = ['trainNo','trainName','source','destination','tick
   counter: any;
   paymentHandler:any = null;
   username!: string | null;
+  id!:any;
+  trainNo: any;
 
 ngOnInit(){
   this.invokeStripe();
 
   this.ticketForm=this.formbulider.group({
     pnr: [''],
-    trainName: ['', [Validators.required]],
-    source: ['', [Validators.required]],
-    destination: ['', [Validators.required]], 
+    trainName: [],
+    source: [],
+    destination: [], 
     name: ['', [Validators.required]],
     age: ['', [Validators.required]],
     gender: ['', [Validators.required]],
     travelDate: ['', [Validators.required]],
     ticketprice: ['', [Validators.required]],
-    username:['']
+    username:[''],
+    trainNo:['']
   })
-  this.loadAllTrain();
+  this.loadTrainToSelect();
+
 }
-  constructor(private scroller: ViewportScroller,private formbulider: FormBuilder, private TrainService: TrainService,  private _snackBar: MatSnackBar, public dialog: MatDialog,private http: HttpClient,private spinner: NgxSpinnerService) {
+  constructor(private scroller: ViewportScroller,private formbulider: FormBuilder, private TrainService: TrainService,  private _snackBar: MatSnackBar, public dialog: MatDialog,private http: HttpClient,private router:Router) {
     this.TrainService.getAllTrain().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
     });
   }
   
- 
- 
- 
-  loadAllTrain() {
-    this.TrainService.getAllTrain().subscribe(data => {
-      this.dataSource = new MatTableDataSource(data);
-      
-    });
-  }
+
   onFormSubmit() {
     this.dataSaved = false;
     const Ticket = this.ticketForm.value;
+    this.onResetForm();
     this. makePayment(Ticket.ticketprice);
+    this.SavedSuccessful(1);
   }
   
  
-  
+  onResetForm(){
+    this.ticketForm=this.formbulider.group({
+      pnr: [''],
+      trainName: [''],
+      name: [''],
+      age: [''],
+      gender: [''],
+      travelDate: [''],
+      ticketprice: [''],
+      username:[''],
+      trainNo:['']
+    })
+  }
  
   resetForm() {
     this.ticketForm.reset();
     this.massage = null;
     this.dataSaved = false;
-    this.loadAllTrain();
+  //  this.loadTrainToSelect();
   }
   
-  loadTrainToSelect(id: string){
-    this.goDown1();
+  loadTrainToSelect(){
     this.username = window.localStorage.getItem('username');
-    this.TrainService.getTrainById(id).subscribe(Train =>{
-     
+    this.id = localStorage.getItem('id');    
+    this.TrainService.getTrainById(this.id).subscribe(Train =>{     
       this.trainIdUpdate = Train.id;
       this.massage =null;
       this.dataSaved=false;
+      this.ticketForm.controls['trainNo'].setValue(Train.trainNo);
       this.ticketForm.controls['username'].setValue(this.username);
       this.ticketForm.controls['trainName'].setValue(Train.trainName);
       this.ticketForm.controls['source'].setValue(Train.source);
@@ -102,24 +114,22 @@ ngOnInit(){
     });
   }
 
-  createTicket(Ticket: Ticket) {
-    // console.log("in ts file"+Ticket);        
+  createTicket(Ticket: Ticket) {       
         this.createTicket1(Ticket).subscribe(
           () => {
-            this.dataSaved = true;
-            this.SavedSuccessful(1);
-            this.loadAllTrain();            
+            this.dataSaved = true;    
             this.ticketForm.reset();
           }
         );
+        this.SavedSuccessful(1);
     }
     
     createTicket1(Ticket: Ticket): Observable<Ticket> {
-      // console.log("in service");
       const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json','Access-Control-Allow-Origin':'*'}) };
       return this.http.post<Ticket>('http://localhost:8080/api/tickets',
       Ticket, httpOptions);
     }
+
   SavedSuccessful(isUpdate: number) {
     if (isUpdate == 1) {
       this._snackBar.open('Ticket Booked Successfully!', 'Close', {
@@ -143,12 +153,13 @@ ngOnInit(){
     paymentHandler.open({
       name: 'Sarthi',
       description: 'Easy Payment',
+      currency: 'inr',
       amount: amount * 100
     });
     this.dataSaved = false;
     const Ticket = this.ticketForm.value;
     this.createTicket(Ticket);
-    this.SavedSuccessful(1);
+    
   }
   
   invokeStripe() {
@@ -163,7 +174,7 @@ ngOnInit(){
           locale: 'auto',
           token: function (stripeToken: any) {
             console.log(stripeToken)
-            alert('Payment has been successfull!');
+            alert('Payment has been successfull!');            
           }
         });
       }
@@ -171,10 +182,7 @@ ngOnInit(){
       window.document.body.appendChild(script);
     }
   
-  
-  }
-  goDown1() {
-    this.scroller.scrollToAnchor("targetRed");
+   
   }
 }
 

@@ -36,7 +36,7 @@ export class PassengerComponent implements OnInit {
   SelectedDate = null;
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
-  displayedColumns: string[] = ['id','name', 'age', 'gender', 'Edit', 'Delete'];
+  displayedColumns: string[] = ['name', 'age', 'gender'];
 
 
 
