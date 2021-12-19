@@ -1,3 +1,4 @@
+   
 <div id="overlay" class="overlay">
   <div id="loading-img"></div>
 </div>
@@ -6,7 +7,7 @@
   <div class="flex-parent">
     <!-- Sign Up Form Starts Here -->	
 
-    <form [formGroup]="ticketForm" (ngSubmit)="onFormSubmit()" >
+    <form [formGroup]="ticketForm" (ngSubmit)="onFormSubmit()" id="targetRed">
 
       <h2 class="main-header"><i class="material-icons" style="font-weight: 700; font-size: 2.8rem;">person_add</i> Passenger Preference</h2>
 
@@ -22,13 +23,8 @@
             <input formControlName="username" matTooltip="" matInput placeholder="username"
               autocomplete="off">
           </mat-form-field>
-
-          <mat-form-field style="display: none;">
-            <input formControlName="trainNo" matTooltip="" matInput placeholder="trainNo"
-              autocomplete="off">
-          </mat-form-field>
           <td>
-            <mat-form-field style="margin-left:12em;" >
+            <mat-form-field style="margin-left:12em;">
               <input formControlName="trainName" matTooltip="Enter Train name" matInput placeholder="TrainName"
                 autocomplete="off" [readonly]="true">
             </mat-form-field>
@@ -59,14 +55,14 @@
         <tr>
           <td>
             <mat-form-field style="margin-left:8em;">
-              <input formControlName="name" matTooltip="Enter passenger Name" matInput placeholder="Name"
+              <input formControlName="name" matTooltip="Enter passenger name" matInput placeholder="name"
                 autocomplete="off">
             </mat-form-field>
           
           </td>
           <td>
             <mat-form-field class="demo-full-width" style="margin-left:2em;">
-              <input formControlName="age" matTooltip="Enter passenger age" matInput placeholder="Age"
+              <input formControlName="age" matTooltip="Enter passenger age" matInput placeholder="age"
                 autocomplete="off">
             </mat-form-field>
           
@@ -99,7 +95,3 @@
       </p>
     </form>
 </div>
-
-
-
-

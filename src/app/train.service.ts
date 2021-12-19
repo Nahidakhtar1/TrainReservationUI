@@ -59,11 +59,7 @@ export class TrainService {
 }
 
 
-createTicket(Ticket: Ticket): Observable<Ticket> {
-  console.log("in service");
-  console.log(Ticket+"this is ticket");
-  
-  
+createTicket(Ticket: Ticket): Observable<Ticket> { 
   const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json','Access-Control-Allow-Origin':'*'}) };
   return this.http.post<Ticket>('http://localhost:8080/tickets',
   Ticket, httpOptions);

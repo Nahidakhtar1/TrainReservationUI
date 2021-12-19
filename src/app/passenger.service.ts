@@ -8,6 +8,7 @@ import { Passenger } from './passenger';
   providedIn: 'root'
 })
 export class PassengerService {
+ 
   updatePassengerById(id: string) {
     throw new Error('Method not implemented.');
   }
@@ -41,6 +42,9 @@ export class PassengerService {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
     return this.http.delete<number>(this.url + id);
   
+}
+getPassengerByName(name: any): Observable<Passenger> {
+  return this.http.get<Passenger>('http://localhost:8080/api/passenger/'+ name);
 }
 
 

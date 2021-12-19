@@ -57,7 +57,9 @@ import { ProfuleAdminComponent } from './admin-dashboard/profule-admin/profule-a
 import { TrainScheduleComponent } from './admin-dashboard/train-schedule/train-schedule.component';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import { NotificationUComponent } from './user-dasbord/notification-u/notification-u.component';
-
+import { ExplIndiaComponent } from './user-dasbord/expl-india/expl-india.component';
+import { SxplMaharajaComponent } from './user-dasbord/sxpl-maharaja/sxpl-maharaja.component';
+import { ExplSeasonsComponent } from './user-dasbord/expl-seasons/expl-seasons.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +87,10 @@ import { NotificationUComponent } from './user-dasbord/notification-u/notificati
     BookingVerficationComponent,
     ProfuleAdminComponent,
     TrainScheduleComponent,
-    NotificationUComponent
+    NotificationUComponent,
+    ExplIndiaComponent,
+    SxplMaharajaComponent,
+    ExplSeasonsComponent
   ],
   imports: [
     BrowserModule,  

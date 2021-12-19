@@ -14,10 +14,14 @@ import { SignupComponent } from './signup/signup.component';
 import { TicketBookingComponent } from './ticket-booking/ticket-booking.component';
 import { TrainComponent } from './train/train.component';
 import { TrainlistComponent } from './trainlist/trainlist.component';
+import { ExplIndiaComponent } from './user-dasbord/expl-india/expl-india.component';
+import { ExplSeasonsComponent } from './user-dasbord/expl-seasons/expl-seasons.component';
+import { NotificationUComponent } from './user-dasbord/notification-u/notification-u.component';
 import { PnrStatusComponent } from './user-dasbord/pnr-status/pnr-status.component';
 import { ProfileViewComponent } from './user-dasbord/profile-view/profile-view.component';
 import { ReservationComponent } from './user-dasbord/reservation/reservation.component';
 import { Part1Component } from './user-dasbord/reservation/reservationcomponents/part1/part1.component';
+import { SxplMaharajaComponent } from './user-dasbord/sxpl-maharaja/sxpl-maharaja.component';
 import { UserComponent } from './user/user.component';
 
 
@@ -46,8 +50,12 @@ const routes: Routes = [
 
   { path: 'user', component: UserComponent,  children: [
     { path: '', component: HomeViewComponent },
+    { path: 'exploreindia', component: ExplIndiaComponent },
+    { path: 'exploremaharajas', component: SxplMaharajaComponent },
+    { path: 'seasonal', component: ExplSeasonsComponent },
     { path:'pnrStatus', component:PnrStatusComponent },
     { path: 'profile', component: ProfileViewComponent },
+    { path: 'notifications', component: NotificationUComponent },
     { path: 'booking', component: ReservationComponent, children: [
       { path: '', component: Part1Component },
       { path: 'seating/details', component: TicketBookingComponent },
